@@ -1,0 +1,10 @@
+{
+    "nodes": {
+        "ft_lab.OmniGraph.simpleNode.AddTest": {
+            "description": "AddTest",
+            "version": 1,
+            "extension": "ft_lab.OmniGraph.simpleNode",
+            "language": "Python"
+        }
+    }
+}
