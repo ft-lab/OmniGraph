@@ -224,4 +224,25 @@ Omniverse Createを起動したままでもExtensionを所定のフォルダに�
 
 Extensionのリストで"Python Extension Example"が存在するのを確認できました。     
 ![extension_cap_01.jpg](../../images/extension_cap_01.jpg)    
+右上のボタンをクリックしてこのExtensionを有効にします。     
+
+## Action Graphを表示
+
+メインメニューの[Window]-[Visual Scripting]-[Action Graph]を選択します。     
+
+![OmniGraph_01_02.png](../../images/OmniGraph_01_02.png)    
+"New Action Graph"を選択。     
+
+### Examples - Example Add Test
+
+Examplesのカテゴリ内に、ここで作成した"Example Add Test"を確認できました。     
+![OmniGraph_01_03.png](../../images/OmniGraph_01_03.png)    
+
+### 動作確認
+
+以下のようにノードを組み合わせることで、2つのfloatを加算して出力する確認を行えます。     
+![OmniGraph_01_04.png](../../images/OmniGraph_01_04.png)    
+
+加算した結果を"To String"で文字列に変換し、"Print Text"でスクリーンに結果を表示しています。     
+Playを行うことで、加算結果がビューポートの左上に表示されます。     
 
