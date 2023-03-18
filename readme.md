@@ -16,6 +16,9 @@ OmniGraphはノードを組み合わせて制御（プログラム）を行う�
 アニメーションやPhysicsの制御もOmniGraphで行うことができます。    
 
 また、新しいノードをPythonでExtensionとして記載し、カスタマイズしていくことも可能です。     
+また、Python上でWARPを使うことでGPUを使った並列処理を行うことができます。     
+
+* [OmniGraphとAction Graphの違いは ?](./doc/OmniGraph_ActionGraph.md)
 
 ## Extension(Python)を使ったノード作成のサンプル
 

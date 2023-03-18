@@ -40,10 +40,7 @@ https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/howto/HowTo.ht
                     AddTestDatabase.py
                 __init__.py
                 extension.py
-    [ogn]
-        nodes.json
 ```
-
 
 ## data/icon.png
 
@@ -194,23 +191,6 @@ class SimpleNodeExtension(omni.ext.IExt):
 
     def on_shutdown(self):
         print("[ft_lab.OmniGraph.simpleNode] shutdown")
-```
-
-### ogn/nodes.json
-
-ノードとしての情報を記載します。      
-
-```json
-{
-    "nodes": {
-        "ft_lab.OmniGraph.simpleNode.AddTest": {
-            "description": "AddTest",
-            "version": 1,
-            "extension": "ft_lab.OmniGraph.simpleNode",
-            "language": "Python"
-        }
-    }
-}
 ```
 
 ## Omniverse CreateにExtensionを入れる
