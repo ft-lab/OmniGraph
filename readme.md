@@ -19,6 +19,8 @@ OmniGraphはノードを組み合わせて制御（プログラム）を行う�
 また、Python上でWARPを使うことでGPUを使った並列処理を行うことができます。     
 
 * [OmniGraphとAction Graphの違いは ?](./doc/OmniGraph_ActionGraph.md)
+* [ノードの構成](./doc/NodeStructure.md)
+* [Pythonでカスタムノードを作成](./doc/CustomNode_python.md)
 
 ## Extension(Python)を使ったノード作成のサンプル
 

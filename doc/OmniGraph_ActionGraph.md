@@ -21,9 +21,9 @@ https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/Glossary.html
 これらはStageパネルで右クリックし、[Create] - [Visual Scripting]からGraphのPrimを追加できます。      
 ![OmniGraph_stage_panel.png](./images/OmniGraph_stage_panel.png)     
 
-これ以外に、前述のものとは少し違いますが、MDL Graphというものもあります。     
+前述のものとは少し違いますが、これ以外にMDL Graphというものもあります。     
 
 |Graph名|内容|      
 |---|---|      
-|MDL Graph(Material Graph)|マテリアルのMDLをノードベースで構築|      
+|MDL Graph (Material Graph)|マテリアルのMDLをノードベースで構築|      
 
