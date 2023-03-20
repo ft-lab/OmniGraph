@@ -78,7 +78,7 @@ ft_lab.OmniGraph.simpleNode
 
 "extension.toml"はExtentionの設定を記載します。     
 
-```
+```toml
 [package]
 # Semantic Versionning is used: https://semver.org/
 version = "0.0.1"
@@ -130,7 +130,7 @@ name = "ft_lab.OmniGraph.simpleNode"
 ```
 
 OmniGraphの場合は、通常のExtensionに以下を追加しています。      
-```
+```toml
 # Watch the .ogn files for hot reloading (only works for Python files)
 [fswatcher.patterns]
 include = ["*.ogn", "*.py"]
