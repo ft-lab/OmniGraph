@@ -685,6 +685,7 @@ og.deregister_node_typeで"[Extension名].[ノード名]"を指定していま�
 
 
 以上で、"nodes/AddTest.ogn" と "nodes/AddTest.py"と"ogn/AddTestDatabase.py"の3つが用意できたことになります。     
+複数のノードを1つのExtensionに納める場合は、この3組ずつを追加していきます。    
 
 一回"[ft_lab.OmniGraph.simpleNode](../extensions/ft_lab.OmniGraph.simpleNode)"のようなひな型を用意すれば、      
 ほとんどは一部を書き換えるだけでカスタムノードを作ることができそうです。     
