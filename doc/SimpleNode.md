@@ -522,8 +522,8 @@ ABIとは"C++の連携を容易にするインターフェース"とのこと。
 
 参考 :     
 
-Tutorial 3 - ABI Override Node    
-https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/tutorials/tutorial3.html     
+Tutorial 3 - Tutorial 12 - Python ABI Override Node    
+https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/tutorials/tutorial12.html     
 
 "# modification required"のところはノードに合わせて置き換えるようにしてください。     
 それ以外はコピー&ペーストでOKです。     
