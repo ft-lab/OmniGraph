@@ -116,7 +116,7 @@ exclude = ["*Database.py","*/ogn*"]
 
 svgファイルはAffinity Designer ( https://affinity.serif.com/ja-jp/designer/ )で作成しました。     
 ベクトル形式のデータになります。     
-ドローツールでsvgを出力できるツールであれば、何を使って作成できるかと思います。     
+ドローツールでsvgを出力できるツールであれば、何を使っても作成できるかと思います。     
 
 この"icon.svg"は、"ogn/AddTestDatabase.py"で参照しています。    
 
@@ -376,6 +376,7 @@ LOCAL_PROPERTY_NAMES = {"a", "b"}
 ```python
 self._batchedReadAttributes = [self._attributes.a, self._attributes.b]
 ```
+おそらく、self._attributes.aは0、self._attributes.bは1、で配列のインデックスに相当するものだと思われます。      
 
 self._batchedReadValuesでは、Input要素のデフォルト値を配列で与えています。     
 ```python
@@ -531,7 +532,6 @@ https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/tutorials/tuto
     class abi:
         @staticmethod
         def get_node_type():
-            # modification required
             get_node_type_function = getattr(AddTestDatabase.NODE_TYPE_CLASS, 'get_node_type', None)
             if callable(get_node_type_function):
                 return get_node_type_function()
@@ -540,7 +540,152 @@ https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/tutorials/tuto
             return 'ft_lab.OmniGraph.simpleNode.AddTest'
 ```
 
-"getattr"の第一引数で"[ノード名]Database.NODE_TYPE_CLASS"を指定。    
+"getattr"の第一引数で"自身のクラス名.NODE_TYPE_CLASS"を指定。    
 get_node_typeメソッドの戻り値で、このノードのパスを指定します（[Extension名].[ノード名]）。      
 
+abiのcomputeメソッド。      
+
+```python
+        @staticmethod
+        def compute(context, node):
+            try:
+                per_node_data = AddTestDatabase.PER_NODE_DATA[node.node_id()]
+                db = per_node_data.get('_db')
+                if db is None:
+                    db = AddTestDatabase(node)
+                    per_node_data['_db'] = db
+            except:
+                db = AddTestDatabase(node)
+
+            try:
+                compute_function = getattr(AddTestDatabase.NODE_TYPE_CLASS, 'compute', None)
+                if callable(compute_function) and compute_function.__code__.co_argcount > 1:
+                    return compute_function(context, node)
+
+                db.inputs._prefetch()
+                db.inputs._setting_locked = True
+                with og.in_compute():
+                    return AddTestDatabase.NODE_TYPE_CLASS.compute(db)
+            except Exception as error:
+                stack_trace = "".join(traceback.format_tb(sys.exc_info()[2].tb_next))
+                db.log_error(f'Assertion raised in compute - {error}\n{stack_trace}', add_context=False)
+            finally:
+                db.inputs._setting_locked = False
+                db.outputs._commit()
+            return False
+```
+"AddTestDatabase"は自身のクラス名。環境に合わせて書き換えるようにしてください。     
+それ以外はそのままコピー&ペーストでよさそうです。     
+
+abiのinitialize, release, update_node_versionメソッド。     
+
+```python
+        @staticmethod
+        def initialize(context, node):
+            AddTestDatabase._initialize_per_node_data(node)
+            initialize_function = getattr(AddTestDatabase.NODE_TYPE_CLASS, 'initialize', None)
+            if callable(initialize_function):
+                initialize_function(context, node)
+        @staticmethod
+        def release(node):
+            release_function = getattr(AddTestDatabase.NODE_TYPE_CLASS, 'release', None)
+            if callable(release_function):
+                release_function(node)
+            AddTestDatabase._release_per_node_data(node)
+        @staticmethod
+        def update_node_version(context, node, old_version, new_version):
+            update_node_version_function = getattr(AddTestDatabase.NODE_TYPE_CLASS, 'update_node_version', None)
+            if callable(update_node_version_function):
+                return update_node_version_function(context, node, old_version, new_version)
+            return False
+```
+"AddTestDatabase"は自身のクラス名。環境に合わせて書き換えるようにしてください。     
+それ以外はそのままコピー&ペーストでよさそうです。     
+
+abiのinitialize_typeメソッド。     
+
+```python
+        @staticmethod
+        def initialize_type(node_type):
+            initialize_type_function = getattr(AddTestDatabase.NODE_TYPE_CLASS, 'initialize_type', None)
+            needs_initializing = True
+            if callable(initialize_type_function):
+                needs_initializing = initialize_type_function(node_type)
+            if needs_initializing:
+                # modification required
+                node_type.set_metadata(ogn.MetadataKeys.EXTENSION, "ft_lab.OmniGraph.simpleNode")
+                node_type.set_metadata(ogn.MetadataKeys.UI_NAME, "Example Add Test")
+                node_type.set_metadata(ogn.MetadataKeys.CATEGORIES, "examples")
+                node_type.set_metadata(ogn.MetadataKeys.DESCRIPTION, "Test to add two float values")
+                node_type.set_metadata(ogn.MetadataKeys.LANGUAGE, "Python")
+
+                # Set Icon(svg).
+                icon_path = carb.tokens.get_tokens_interface().resolve("${ft_lab.OmniGraph.simpleNode}")
+                icon_path = icon_path + '/' + "data/icons/icon.svg"
+                node_type.set_metadata(ogn.MetadataKeys.ICON_PATH, icon_path)
+
+                AddTestDatabase.INTERFACE.add_to_node_type(node_type)
+```
+
+"AddTestDatabase"は自身のクラス名。環境に合わせて書き換えるようにしてください。     
+"node_type.set_metadata"の指定箇所で、ノードに対する情報を指定しています。      
+
+"ogn.MetadataKeys.EXTENSION"でExtension名を指定。      
+"ogn.MetadataKeys.UI_NAME"はUIでのノードに対する表示名。     
+"ogn.MetadataKeys.CATEGORIES"はカテゴリ名。      
+"ogn.MetadataKeys.DESCRIPTION"はノードの説明。      
+"ogn.MetadataKeys.LANGUAGE"は使用している言語。"Python"と指定。      
+
+以下は、Extensionの絶対パスを取得し、"/data/icons/icon.svg"を連結してアイコンのsvgファイルを指定しています。      
+これは、GraphのUIで使用されるアイコンです。     
+```python
+    icon_path = carb.tokens.get_tokens_interface().resolve("${ft_lab.OmniGraph.simpleNode}")
+    icon_path = icon_path + '/' + "data/icons/icon.svg"
+    node_type.set_metadata(ogn.MetadataKeys.ICON_PATH, icon_path)
+```
+
+abiのon_connection_type_resolveメソッド。     
+
+```python
+        @staticmethod
+        def on_connection_type_resolve(node):
+            on_connection_type_resolve_function = getattr(AddTestDatabase.NODE_TYPE_CLASS, 'on_connection_type_resolve', None)
+            if callable(on_connection_type_resolve_function):
+                on_connection_type_resolve_function(node)
+```
+"AddTestDatabase"は自身のクラス名。環境に合わせて書き換えるようにしてください。     
+それ以外はそのままコピー&ペーストでよさそうです。     
+
+以下はおそらくそのままコピー&ペーストでいけそうです。      
+```python
+    NODE_TYPE_CLASS = None
+    GENERATOR_VERSION = (1, 17, 2)
+    TARGET_VERSION = (2, 65, 4)
+```
+
+### registerメソッド : クラスの登録
+
+```python
+    @staticmethod
+    def register(node_type_class):
+        AddTestDatabase.NODE_TYPE_CLASS = node_type_class
+        og.register_node_type(AddTestDatabase.abi, 1)
+```
+"AddTestDatabase"は自身のクラス名。環境に合わせて書き換えるようにしてください。     
+それ以外はそのままコピー&ペーストでよさそうです。     
+
+### deregisterメソッド : クラスの登録解除
+
+```python
+    def deregister():
+        og.deregister_node_type("ft_lab.OmniGraph.simpleNode.AddTest")
+```
+
+og.deregister_node_typeで"[Extension名].[ノード名]"を指定しています。      
+
+
+以上で、"nodes/AddTest.ogn" と "nodes/AddTest.py"と"ogn/AddTestDatabase.py"の3つが用意できたことになります。     
+
+一回"[ft_lab.OmniGraph.simpleNode](../extensions/ft_lab.OmniGraph.simpleNode)"のようなひな型を用意すれば、      
+ほとんどは一部を書き換えるだけでカスタムノードを作ることができそうです。     
 
