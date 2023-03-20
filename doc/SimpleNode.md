@@ -489,6 +489,7 @@ setterでは、self._batchedWriteValues[self._attributes.sum]（おそらくself
 ### ValuesForState : 状態のアクセス
 
 これは定型文として、そのままコピー&ペーストしました。      
+"AddTestDatabase"は自身のクラス名。環境に合わせて書き換えるようにしてください。    
 
 ```python
     class ValuesForState(og.DynamicAttributeAccess):
