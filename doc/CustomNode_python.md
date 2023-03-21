@@ -1,6 +1,19 @@
 # Pythonでカスタムノードを作成
 
+## 参考
+
 参考 : https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/Overview.html
+
+また、既存Extrensionの"omni.graph.tutorials"は様々なノードの作り方が書かれているため参考になりそうです。     
+
+![OmniGraph_tutorials.png](./images/OmniGraph_tutorials.png)     
+ドキュメントは以下。     
+
+https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/tutorials/Overview.html      
+
+ただし、サンプルではC++を使っているものも混在しています。     
+
+## Pythonでカスタムノードを作成
 
 OmniGraphのノード(OGN : OmniGraph Node)は、Pythonで作成することができます。     
 提供はExtensionとして行います。     
@@ -14,6 +27,3 @@ OmniGraphのノード(OGN : OmniGraph Node)は、Pythonで作成することが�
 * ["Node Description Editor"を使用](./NodeDescriptionEditor.md)
 * [Hello Worldとして"ft_lab.OmniGraph.simpleNode"を使用](./SimpleNode.md)
 
-また、既存Extrensionの"omni.graph.tutorials"は様々なノードの作り方が書かれているため参考になりそうです。     
-
-![OmniGraph_tutorials.png](./images/OmniGraph_tutorials.png)     
