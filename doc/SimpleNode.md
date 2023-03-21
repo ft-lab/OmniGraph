@@ -253,9 +253,14 @@ class AddTest:
     @staticmethod
     def compute(db) -> bool:
         """Compute the outputs from the current input"""
-        a = db.inputs.a
-        b = db.inputs.b
-        db.outputs.sum = a + b
+        try:
+            a = db.inputs.a
+            b = db.inputs.b
+            db.outputs.sum = a + b
+
+        except TypeError as error:
+            db.log_error(f"Processing failed : {error}")
+            return False
     
         return True
 ```
@@ -264,6 +269,8 @@ class AddTest:
 "db.inputs"でInput要素を指定、"db.outputs"でOutput要素を指定します。     
 それぞれの要素の名前や型は、ognファイルで指定されたノード名やtypeの指定に従います。     
 この"AddTest"の場合は、"db.inputs.a", "db.inputs.b", "db.outputs.sum"はfloat型です。      
+
+なお、Inputがdoubleやint型の場合でも、自動でfloatにキャストして渡すことができるようでした。     
 
 ## ogn/AddTestDatabase.py
 

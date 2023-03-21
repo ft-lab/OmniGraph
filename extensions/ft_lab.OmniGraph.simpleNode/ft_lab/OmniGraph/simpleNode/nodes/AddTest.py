@@ -9,11 +9,15 @@ class AddTest:
     @staticmethod
     def compute(db) -> bool:
         """Compute the outputs from the current input"""
-        a = db.inputs.a
-        b = db.inputs.b
-        db.outputs.sum = a + b
+        try:
+            a = db.inputs.a
+            b = db.inputs.b
+            db.outputs.sum = a + b
+
+        except TypeError as error:
+            db.log_error(f"Processing failed : {error}")
+            return False
     
         return True
-
 
 
