@@ -244,6 +244,8 @@ ognファイルはノードの定義をJSON形式で記載します。
 
 ognファイルに記載されたノードのInputとOutputを元に、ノード内部の処理を実装します。      
 
+参考 : https://docs.omniverse.nvidia.com/kit/docs/omni.graph.docs/latest/dev/ogn/ogn_code_samples_python.html     
+
 ```python
 import numpy as np
 import omni.ext
@@ -302,6 +304,7 @@ class AddTestDatabase(og.Database):
 
 "og.Database._get_interface"として、InputやOutputの情報を指定します。     
 これはognファイルをそのままPythonに入れ込んだ感じでしょうか、これについてドキュメントがあるかは分からず。     
+
 ノードのInput/Outputに合わせて変更する必要があります。     
 ```python
     INTERFACE = og.Database._get_interface([
