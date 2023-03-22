@@ -1,6 +1,8 @@
 # ft_lab.OmniGraph.simpleNodeAny
 
 "ft_lab.OmniGraph.simpleNodeAny" は2つの任意の値の加算を行い、結果を返すOmniGraph Nodeです。     
+![data/preview.png](data/preview.png)     
+
 以下の入力の種類に対応しています。      
 
 * int
