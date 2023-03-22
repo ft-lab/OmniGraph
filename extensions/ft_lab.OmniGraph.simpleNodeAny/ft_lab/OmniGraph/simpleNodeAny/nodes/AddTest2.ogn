@@ -1,0 +1,39 @@
+{
+    "AddTest2": {
+        "version": 1,
+        "categories": "examples",
+        "description": "Add node.",
+        "language": "Python",
+        "metadata": {
+            "uiName": "Example Add Test"
+        },
+        "state": {
+         "$comment": "The existence of this state section, even if it contains no attributes, means there is internal state that is entirely managed by the node"
+        },
+        "inputs": {
+            "a": {
+                "type": ["numerics"],
+                "description": "a",
+                "metadata": {
+                    "uiName": "A"
+                }
+            },
+            "b": {
+                "type": ["numerics"],
+                "description": "b",
+                "metadata": {
+                    "uiName": "B"
+                }
+            }
+        },
+        "outputs": {
+            "sum": {
+                "type": ["numerics"],
+                "description": "sum",
+                "metadata": {
+                    "uiName": "Sum"
+                }
+            }
+        }
+    }
+}

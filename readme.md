@@ -27,6 +27,7 @@ OmniGraphはノードを組み合わせて制御（プログラム）を行う�
 |Extension名|内容|   
 |---|---|   
 |[ft_lab.OmniGraph.simpleNode](extensions/ft_lab.OmniGraph.simpleNode)|2つのfloat値を加算して、float値を返す|   
+|[ft_lab.OmniGraph.simpleNodeAny](extensions/ft_lab.OmniGraph.simpleNodeAny)|2つの任意の入力値を加算して、値を返す|   
 
 
 ----
