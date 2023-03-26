@@ -233,7 +233,7 @@ try:
     db.outputs.sum.value = a.value + b.value
 ```
 で加算を行い、"db.outputs.sum.value"に結果を格納しています。      
-なお、この加算処理はa,b共に同一の型の場合でも（例えば aがfloat3、bがfloat）自動で計算されます。     
+なお、この加算処理はa,b共に別の型の場合でも（例えば aがfloat3、bがfloat）自動で計算されます。     
 ![OmniGraph_node_any_02.png](./images/OmniGraph_node_any_02.png)     
 
 "nodes/AddTest2.py"では、出力時の型の決定とノードでの処理を記載しました。     
