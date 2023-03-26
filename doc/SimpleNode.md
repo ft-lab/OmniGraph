@@ -1,6 +1,8 @@
 # ft_lab.Omni.Graph.simpleNode
 
 "[ft_lab.OmniGraph.simpleNode](../extensions/ft_lab.OmniGraph.simpleNode)"は、単純なfloat値の加算を行うHelloWorld的なノードです。     
+![OmniGraph_Node_descriptionEditor_15.png](./images/OmniGraph_Node_descriptionEditor_15.png)     
+
 これを例として、PythonでのOmniGraphはどのような組み方をすればよいのか確認していきます。       
 「[Node Description Editor](./NodeDescriptionEditor.md)」を使って作成したOmniGraph用のExtensionもほぼ同じなため、応用が利く内容になります。     
 
