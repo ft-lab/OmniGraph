@@ -1,0 +1,37 @@
+{
+    "GetArraySize": {
+        "version": 1,
+        "categories": "examples",
+        "description": "Get array size.",
+        "language": "Python",
+        "metadata": {
+            "uiName": "Get Array Size"
+        },
+        "inputs": {
+            "array": {
+                "type": "arrays",
+                "description": "Array",
+                "metadata": {
+                    "uiName": "Array"
+                }
+            }
+        },
+        "outputs": {
+            "type": {
+                "type": string,
+                "description": "Type",
+                "metadata": {
+                    "uiName": "Type"
+                }
+            }
+
+            "size": {
+                "type": int,
+                "description": "Number of array elements",
+                "metadata": {
+                    "uiName": "Size"
+                }
+            }
+        }
+    }
+}
