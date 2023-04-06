@@ -1,0 +1,37 @@
+{
+    "GetMeshInfo": {
+        "version": 1,
+        "categories": "examples",
+        "description": "Get mesh info",
+        "language": "Python",
+        "metadata": {
+            "uiName": "Get mesh info"
+        },
+        "inputs": {
+            "primPath": {
+                "type": "token",
+                "description": "Prim Path",
+                "metadata": {
+                    "uiName": "Prim Path"
+                }
+            }
+        },
+        "outputs": {
+            "type": {
+                "type": string,
+                "description": "Type",
+                "metadata": {
+                    "uiName": "Type"
+                }
+            }
+
+            "description": {
+                "type": string,
+                "description": "Description",
+                "metadata": {
+                    "uiName": "Description"
+                }
+            }
+        }
+    }
+}
