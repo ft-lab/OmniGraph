@@ -18,15 +18,14 @@
         },
         "outputs": {
             "type": {
-                "type": string,
+                "type": "string",
                 "description": "Type",
                 "metadata": {
                     "uiName": "Type"
                 }
-            }
-
+            },
             "description": {
-                "type": string,
+                "type": "string",
                 "description": "Description",
                 "metadata": {
                     "uiName": "Description"

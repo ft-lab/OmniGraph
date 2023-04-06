@@ -68,17 +68,17 @@ class GetMeshInfo:
             db.outputs.type = ""
             db.outputs.description = ""
 
-            # Get stage.
-            stage = omni.usd.get_context().get_stage()
+            if db.inputs.primPath != None and db.inputs.primPath != "":
+                # Get stage.
+                stage = omni.usd.get_context().get_stage()
 
-            # Get Prim and confirm presence.
-            prim = stage.GetPrimAtPath(db.inputs.primPath)
-            if prim.IsValid() == True:
-                db.outputs.type = prim.GetTypeName()
+                # Get Prim and confirm presence.
+                prim = stage.GetPrimAtPath(db.inputs.primPath)
+                if prim.IsValid() == True:
+                    db.outputs.type = prim.GetTypeName()
 
-                if db.outputs.type == 'Mesh':
-                    db.outputs.description = GetMeshInfo.getMeshInfo(prim)
-
+                    if db.outputs.type == 'Mesh':
+                        db.outputs.description = GetMeshInfo.getMeshInfo(prim)
 
         except TypeError as error:
             db.log_error(f"Processing failed : {error}")

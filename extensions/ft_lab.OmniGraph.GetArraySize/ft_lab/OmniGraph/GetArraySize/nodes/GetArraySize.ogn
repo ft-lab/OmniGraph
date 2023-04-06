@@ -18,15 +18,14 @@
         },
         "outputs": {
             "type": {
-                "type": string,
+                "type": "string",
                 "description": "Type",
                 "metadata": {
                     "uiName": "Type"
                 }
-            }
-
+            },
             "size": {
-                "type": int,
+                "type": "int",
                 "description": "Number of array elements",
                 "metadata": {
                     "uiName": "Size"

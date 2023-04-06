@@ -8,15 +8,42 @@
 [GetMeshInfo.ogn](ft_lab/OmniGraph/GetMeshInfo/nodes/GetMeshInfo.ogn)では以下のように指定。      
 この"primPath"に文字列(token)としてPrimPathを接続します。     
 ```json
-    "inputs": {
-        "primPath": {
-            "type": "token",
-            "description": "Prim Path",
-            "metadata": {
-                "uiName": "Prim Path"
+{
+    "GetMeshInfo": {
+        "version": 1,
+        "categories": "examples",
+        "description": "Get mesh info",
+        "language": "Python",
+        "metadata": {
+            "uiName": "Get mesh info"
+        },
+        "inputs": {
+            "primPath": {
+                "type": "token",
+                "description": "Prim Path",
+                "metadata": {
+                    "uiName": "Prim Path"
+                }
+            }
+        },
+        "outputs": {
+            "type": {
+                "type": "string",
+                "description": "Type",
+                "metadata": {
+                    "uiName": "Type"
+                }
+            },
+            "description": {
+                "type": "string",
+                "description": "Description",
+                "metadata": {
+                    "uiName": "Description"
+                }
             }
         }
-    },
+    }
+}
 ```
 
 [GetMeshInfo.py](ft_lab/OmniGraph/GetMeshInfo/nodes/GetMeshInfo.py)では以下のようにMesh情報を文字列として取得して、
@@ -90,17 +117,17 @@ class GetMeshInfo:
             db.outputs.type = ""
             db.outputs.description = ""
 
-            # Get stage.
-            stage = omni.usd.get_context().get_stage()
+            if db.inputs.primPath != None and db.inputs.primPath != "":
+                # Get stage.
+                stage = omni.usd.get_context().get_stage()
 
-            # Get Prim and confirm presence.
-            prim = stage.GetPrimAtPath(db.inputs.primPath)
-            if prim.IsValid() == True:
-                db.outputs.type = prim.GetTypeName()
+                # Get Prim and confirm presence.
+                prim = stage.GetPrimAtPath(db.inputs.primPath)
+                if prim.IsValid() == True:
+                    db.outputs.type = prim.GetTypeName()
 
-                if db.outputs.type == 'Mesh':
-                    db.outputs.description = GetMeshInfo.getMeshInfo(prim)
-
+                    if db.outputs.type == 'Mesh':
+                        db.outputs.description = GetMeshInfo.getMeshInfo(prim)
 
         except TypeError as error:
             db.log_error(f"Processing failed : {error}")
