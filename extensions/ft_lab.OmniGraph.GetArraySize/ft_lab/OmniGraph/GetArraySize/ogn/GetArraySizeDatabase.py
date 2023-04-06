@@ -143,7 +143,7 @@ class GetArraySizeDatabase(og.Database):
             get_node_type_function = getattr(GetArraySizeDatabase.NODE_TYPE_CLASS, 'get_node_type', None)
             if callable(get_node_type_function):
                 return get_node_type_function()
-            return 'ft_lab.OmniGraph.GetArraySizeDatabase.GetArraySizeDatabase'
+            return 'ft_lab.OmniGraph.GetArraySize.GetArraySize'
         
         @staticmethod
         def compute(context, node):
@@ -225,4 +225,4 @@ class GetArraySizeDatabase(og.Database):
 
     @staticmethod
     def deregister():
-        og.deregister_node_type("ft_lab.OmniGraph.GetArraySizeDatabase.GetArraySizeDatabase")
+        og.deregister_node_type("ft_lab.OmniGraph.GetArraySize.GetArraySize")
