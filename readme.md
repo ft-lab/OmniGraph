@@ -29,6 +29,6 @@ OmniGraphはノードを組み合わせて制御（プログラム）を行う�
 |[ft_lab.OmniGraph.simpleNode](extensions/ft_lab.OmniGraph.simpleNode)|2つのfloat値を加算して、float値を返す|   
 |[ft_lab.OmniGraph.simpleNodeAny](extensions/ft_lab.OmniGraph.simpleNodeAny)|2つの任意の入力値を加算して、値を返す|   
 |[ft_lab.OmniGraph.GetArraySize](extensions/ft_lab.OmniGraph.GetArraySize)|配列の種類とサイズを返す|   
-
+|[ft_lab.OmniGraph.GetMeshInfo](extensions/ft_lab.OmniGraph.GetMeshInfo)|入力されたPrimパスがMeshの場合に、メッシュ情報を文字列として出力|   
 
 ----
