@@ -27,4 +27,6 @@ OmniGraphのノード(OGN : OmniGraph Node)は、Pythonで作成することが�
 * ["Node Description Editor"を使用](./NodeDescriptionEditor.md)
 * [Hello Worldとして"ft_lab.OmniGraph.simpleNode"を使用](./SimpleNode.md)
 * [カスタムノードの型を可変にする](./NumericsNode.md)
+* [配列の取得](./ArrayNode.md)
+* [Primを取得し、USDから情報を取得](./UseUSDNode.md)
 
