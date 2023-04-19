@@ -1,0 +1,79 @@
+{
+    "RotationByTime": {
+        "version": 1,
+        "categories": "examples",
+        "description": "Rotation mechanism by time.",
+        "language": "Python",
+        "metadata": {
+            "uiName": "Rotation By Time"
+        },
+        "inputs": {
+            "defaultRotateXYZ": {
+                "type": "float[3]",
+                "description": "Default rotateXYZ",
+                "default": [0.0, 0.0, 0.0],
+                "metadata": {
+                    "uiName": "Default rotateXYZ"
+                }
+            },
+            "rotationAxis": {
+                "type": "int",
+                "description": "Rotation axis (0:X, 0:Y, 0:Z)",
+                "default": 0,
+                "metadata": {
+                    "uiName": "Rotation axis"
+                }
+            },
+            "hour": {
+                "type": "int",
+                "description": "Hour",
+                "default": 0,
+                "metadata": {
+                    "uiName": "Hour"
+                }
+            },
+            "minute": {
+                "type": "int",
+                "description": "Minute",
+                "default": 0,
+                "metadata": {
+                    "uiName": "Minute"
+                }
+            },
+            "second": {
+                "type": "int",
+                "description": "Second",
+                "default": 0,
+                "metadata": {
+                    "uiName": "Second"
+                }
+            }
+        },
+        "outputs": {
+            "hourRotateXYZ": {
+                "type": "float[3]",
+                "description": "Hour rotateXYZ",
+                "default": [0.0, 0.0, 0.0],
+                "metadata": {
+                    "uiName": "Hour RotateXYZ"
+                }
+            },
+            "minuteRotateXYZ": {
+                "type": "float[3]",
+                "description": "Minute rotateXYZ",
+                "default": [0.0, 0.0, 0.0],
+                "metadata": {
+                    "uiName": "Minute RotateXYZ"
+                }
+            },
+            "secondRotateXYZ": {
+                "type": "float[3]",
+                "description": "Second rotateXYZ",
+                "default": [0.0, 0.0, 0.0],
+                "metadata": {
+                    "uiName": "Second RotateXYZ"
+                }
+            }
+        }
+    }
+}
