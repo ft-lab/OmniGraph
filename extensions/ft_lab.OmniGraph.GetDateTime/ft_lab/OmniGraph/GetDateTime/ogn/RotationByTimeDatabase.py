@@ -7,7 +7,7 @@ import traceback
 import carb
 
 class RotationByTimeDatabase(og.Database):
-    """Helper class providing simplified access to data on nodes of type ft_lab.OmniGraph.simpleNode.AddTest
+    """Helper class providing simplified access to data on nodes of type ft_lab.OmniGraph.GetDateTime.RotationByTime
 
     Class Members:
         node: Node being evaluated

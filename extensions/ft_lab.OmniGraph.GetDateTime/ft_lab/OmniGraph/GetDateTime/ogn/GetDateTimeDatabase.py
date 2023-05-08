@@ -7,7 +7,7 @@ import traceback
 import carb
 
 class GetDateTimeDatabase(og.Database):
-    """Helper class providing simplified access to data on nodes of type ft_lab.OmniGraph.simpleNode.AddTest
+    """Helper class providing simplified access to data on nodes of type ft_lab.OmniGraph.GetDateTime.GetDateTime
 
     Class Members:
         node: Node being evaluated

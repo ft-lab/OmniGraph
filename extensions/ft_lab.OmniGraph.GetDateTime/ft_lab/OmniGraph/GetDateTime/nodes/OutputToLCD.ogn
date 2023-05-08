@@ -1,0 +1,81 @@
+{
+    "OutputToLCD": {
+        "version": 1,
+        "categories": "examples",
+        "description": "Time output to LCD (hh:mm).",
+        "language": "Python",
+        "metadata": {
+            "uiName": "Time output to LCD (hh:mm)"
+        },
+        "inputs": {
+            "hourNum10Prim": {
+                "type": "token",
+                "description": "HourNum10 Prim",
+                "metadata": {
+                    "uiName": "Tenth digit of the hour Prim"
+                }
+            },
+            "hourNum1Prim": {
+                "type": "token",
+                "description": "HourNum1 Prim",
+                "metadata": {
+                    "uiName": "First digit of the hour Prim"
+                }
+            },
+            "minuteNum10Prim": {
+                "type": "token",
+                "description": "MinuteNum10 Prim",
+                "metadata": {
+                    "uiName": "Tenth digit of the minute Prim"
+                }
+            },
+            "minuteNum1Prim": {
+                "type": "token",
+                "description": "MinuteNum1 Prim",
+                "metadata": {
+                    "uiName": "First digit of the minute Prim"
+                }
+            },
+            "amPrim": {
+                "type": "token",
+                "description": "AM Prim",
+                "metadata": {
+                    "uiName": "AM Prim"
+                }
+            },
+            "pmPrim": {
+                "type": "token",
+                "description": "PM Prim",
+                "metadata": {
+                    "uiName": "PM Prim"
+                }
+            },
+            "hour": {
+                "type": "int",
+                "description": "Hour",
+                "default": 0,
+                "metadata": {
+                    "uiName": "Hour"
+                }
+            },
+            "minute": {
+                "type": "int",
+                "description": "Minute",
+                "default": 0,
+                "metadata": {
+                    "uiName": "Minute"
+                }
+            },
+            "second": {
+                "type": "int",
+                "description": "Second",
+                "default": 0,
+                "metadata": {
+                    "uiName": "Second"
+                }
+            }
+        },
+        "outputs": {
+        }
+    }
+}
