@@ -6,7 +6,7 @@
         "language": "Python",
         "metadata": {
             "uiName": "Get Array Size"
-        },
+        }, 
         "inputs": {
             "array": {
                 "type": "arrays",

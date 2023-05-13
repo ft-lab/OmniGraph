@@ -32,4 +32,8 @@ OmniGraphはノードを組み合わせて制御（プログラム）を行う�
 |[ft_lab.OmniGraph.GetArraySize](extensions/ft_lab.OmniGraph.GetArraySize)|配列の種類とサイズを返す|   
 |[ft_lab.OmniGraph.GetMeshInfo](extensions/ft_lab.OmniGraph.GetMeshInfo)|入力されたPrimパスがMeshの場合に、メッシュ情報を文字列として出力|   
 
+## サンプルプロジェクト
+
+* [仮想的なアナログ時計/デジタル時計に現在時刻を反映](https://github.com/ft-lab/Omniverse_OmniGraph_ClockSample)
+
 ----
